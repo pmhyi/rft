@@ -1,0 +1,48 @@
+1. Bevezetés
+A projekt lényege egy olyan weboldal létrehozása, ahol a felhasználók bejelölhetik ismerõseiket, kereshetnek újakat, eseményeket létrehozva hívhatnak meg felhasználókat, akik regisztrálva vannak. Az eseményre "ott leszek" visszajelzéssel élõ felhasználókat az engedélyükkel az esemény idõtartama alatt nyomon lehet követni, hogy valóban ott tartózkodnak -e.  
+
+
+2. Áttekintés
+Maga a weboldal egy wordpress alapmotorral jön létre,melybe saját kódjainkat felhasználva különbözõ programozási nyelvekkel hoznánk létre. Kép- és videófeltöltés saját profilra, ezzel növelve a felhasználónak új ismeretség megszerzését és különbözõ eseményekre invitálását. Minden felhasználó létrehozhat eseményeket, amelyekre számos felhasználót meghívhat, akik visszajelzésükkel és engedélyükkel, ha például az "ott leszek" választ adják, akkor nyomonkövethetjük, hogy valóban ott vannak-e az esemény helyszínén. Ezért a felhasználókat tekintve nincs különösebben leszûkítve a kör. Bárki , aki eseménykedvelõ nyugodtan felkeresheti az oldalt és használhatja.
+CSupán a mai világ alapvetõ eszközeivel kell élnie.
+
+3. A rendszer funkciói
+3.1 kép-/videófeltöltés
+-maximális kép/videóméret feltöltésének szabályozása
+-fájlformátum kritériumok
+
+3.2 GPS koordináták leolvasása
+-felhasználói hozzájárulás
+-gyors és hatékony rendszer kiépítése
+
+4. Használhatóság
+Igazán felhasználóbarát. Különösen a mai FB-felhasználók számát figyelembevéve. Mivel hasonló felépítésû és funkcionális. Így szinte már pár kattintás után magáénak tudja a weboldal használatát. Természetesen, ha a felhasználónak mbármilyen igényû kérdése merülne fel a honlappal kapcsolatban, akkor a kapcsolat fülön e-mailben kérhet segítséget.
+
+5. Megbízhatóság
+A weboldal használva a wordpress biztonsági szabályait megbízhatónak mondható általánosságban.
+A regisztrációban megadott adatok szigorúan bizalmasan vannak kezelve és semmiféle reklámcélra nem használódnak fel.
+
+6. Teljesítmény
+A válaszidõ minimálisra csökkentése a fõ cél, hogy minél felhasználóbarátabb legyen. Szükséges esetlegesen egyidõben több ezer felhasználó kérését teljesíteni normál válaszidõn belül
+Természetesen mindezt befolyásolja a felhasználó sávszélessége is.
+
+7. Támogatottság
+Az alap programozási nyelvek (PHP, JavaScript, HTML...) szabványai
+Naplók vezetése
+
+8. Tervezési korlátozások
+PHP, JavaScript, HTML, CSS
+Wordpress motor
+V-model módszertan használata
+
+9. On-line dokumentáció és Help rendszer
+10. Felhasznált kész komponensek
+11. Interfészek
+11.1. Felhasználói interfészek
+11.2. Hardware interfészek
+11.3. Software interfészek
+11.3. Kommunikációs interfészek
+12. Alkalmazott szabványok
+12.1. Kötelezõen alkalmazandó szabványok
+12.2. Választás alapján alkalmazott szabványok
+13. Mellékletek
