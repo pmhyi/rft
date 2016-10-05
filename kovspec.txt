@@ -1,48 +1,50 @@
-1. Bevezetés
-A projekt lényege egy olyan weboldal létrehozása, ahol a felhasználók bejelölhetik ismerõseiket, kereshetnek újakat, eseményeket létrehozva hívhatnak meg felhasználókat, akik regisztrálva vannak. Az eseményre "ott leszek" visszajelzéssel élõ felhasználókat az engedélyükkel az esemény idõtartama alatt nyomon lehet követni, hogy valóban ott tartózkodnak -e.  
+Lanczki MÃ¡rk, Nagy BenjÃ¡min, PÃ¡zmÃ¡ndi Mariann projekt munkÃ¡ja
+
+1. BevezetÃ©s
+A projekt lÃ©nyege egy olyan weboldal lÃ©trehozÃ¡sa, ahol a felhasznÃ¡lÃ³k bejelÃ¶lhetik ismerÅ‘seiket, kereshetnek Ãºjakat, esemÃ©nyeket lÃ©trehozva hÃ­vhatnak meg felhasznÃ¡lÃ³kat, akik regisztrÃ¡lva vannak. Az esemÃ©nyre "ott leszek" visszajelzÃ©ssel Ã©lÅ‘ felhasznÃ¡lÃ³kat az engedÃ©lyÃ¼kkel az esemÃ©ny idÅ‘tartama alatt nyomon lehet kÃ¶vetni, hogy valÃ³ban ott tartÃ³zkodnak -e.  
 
 
-2. Áttekintés
-Maga a weboldal egy wordpress alapmotorral jön létre,melybe saját kódjainkat felhasználva különbözõ programozási nyelvekkel hoznánk létre. Kép- és videófeltöltés saját profilra, ezzel növelve a felhasználónak új ismeretség megszerzését és különbözõ eseményekre invitálását. Minden felhasználó létrehozhat eseményeket, amelyekre számos felhasználót meghívhat, akik visszajelzésükkel és engedélyükkel, ha például az "ott leszek" választ adják, akkor nyomonkövethetjük, hogy valóban ott vannak-e az esemény helyszínén. Ezért a felhasználókat tekintve nincs különösebben leszûkítve a kör. Bárki , aki eseménykedvelõ nyugodtan felkeresheti az oldalt és használhatja.
-CSupán a mai világ alapvetõ eszközeivel kell élnie.
+2. ÃttekintÃ©s
+Maga a weboldal egy wordpress alapmotorral jÃ¶n lÃ©tre,melybe sajÃ¡t kÃ³djainkat felhasznÃ¡lva kÃ¼lÃ¶nbÃ¶zÅ‘ programozÃ¡si nyelvekkel hoznÃ¡nk lÃ©tre. KÃ©p- Ã©s videÃ³feltÃ¶ltÃ©s sajÃ¡t profilra, ezzel nÃ¶velve a felhasznÃ¡lÃ³nak Ãºj ismeretsÃ©g megszerzÃ©sÃ©t Ã©s kÃ¼lÃ¶nbÃ¶zÅ‘ esemÃ©nyekre invitÃ¡lÃ¡sÃ¡t. Minden felhasznÃ¡lÃ³ lÃ©trehozhat esemÃ©nyeket, amelyekre szÃ¡mos felhasznÃ¡lÃ³t meghÃ­vhat, akik visszajelzÃ©sÃ¼kkel Ã©s engedÃ©lyÃ¼kkel, ha pÃ©ldÃ¡ul az "ott leszek" vÃ¡laszt adjÃ¡k, akkor nyomonkÃ¶vethetjÃ¼k, hogy valÃ³ban ott vannak-e az esemÃ©ny helyszÃ­nÃ©n. EzÃ©rt a felhasznÃ¡lÃ³kat tekintve nincs kÃ¼lÃ¶nÃ¶sebben leszÅ±kÃ­tve a kÃ¶r. BÃ¡rki , aki esemÃ©nykedvelÅ‘ nyugodtan felkeresheti az oldalt Ã©s hasznÃ¡lhatja.
+CSupÃ¡n a mai vilÃ¡g alapvetÅ‘ eszkÃ¶zeivel kell Ã©lnie.
 
-3. A rendszer funkciói
-3.1 kép-/videófeltöltés
--maximális kép/videóméret feltöltésének szabályozása
--fájlformátum kritériumok
+3. A rendszer funkciÃ³i
+3.1 kÃ©p-/videÃ³feltÃ¶ltÃ©s
+-maximÃ¡lis kÃ©p/videÃ³mÃ©ret feltÃ¶ltÃ©sÃ©nek szabÃ¡lyozÃ¡sa
+-fÃ¡jlformÃ¡tum kritÃ©riumok
 
-3.2 GPS koordináták leolvasása
--felhasználói hozzájárulás
--gyors és hatékony rendszer kiépítése
+3.2 GPS koordinÃ¡tÃ¡k leolvasÃ¡sa
+-felhasznÃ¡lÃ³i hozzÃ¡jÃ¡rulÃ¡s
+-gyors Ã©s hatÃ©kony rendszer kiÃ©pÃ­tÃ©se
 
-4. Használhatóság
-Igazán felhasználóbarát. Különösen a mai FB-felhasználók számát figyelembevéve. Mivel hasonló felépítésû és funkcionális. Így szinte már pár kattintás után magáénak tudja a weboldal használatát. Természetesen, ha a felhasználónak mbármilyen igényû kérdése merülne fel a honlappal kapcsolatban, akkor a kapcsolat fülön e-mailben kérhet segítséget.
+4. HasznÃ¡lhatÃ³sÃ¡g
+IgazÃ¡n felhasznÃ¡lÃ³barÃ¡t. KÃ¼lÃ¶nÃ¶sen a mai FB-felhasznÃ¡lÃ³k szÃ¡mÃ¡t figyelembevÃ©ve. Mivel hasonlÃ³ felÃ©pÃ­tÃ©sÅ± Ã©s funkcionÃ¡lis. Ãgy szinte mÃ¡r pÃ¡r kattintÃ¡s utÃ¡n magÃ¡Ã©nak tudja a weboldal hasznÃ¡latÃ¡t. TermÃ©szetesen, ha a felhasznÃ¡lÃ³nak mbÃ¡rmilyen igÃ©nyÅ± kÃ©rdÃ©se merÃ¼lne fel a honlappal kapcsolatban, akkor a kapcsolat fÃ¼lÃ¶n e-mailben kÃ©rhet segÃ­tsÃ©get.
 
-5. Megbízhatóság
-A weboldal használva a wordpress biztonsági szabályait megbízhatónak mondható általánosságban.
-A regisztrációban megadott adatok szigorúan bizalmasan vannak kezelve és semmiféle reklámcélra nem használódnak fel.
+5. MegbÃ­zhatÃ³sÃ¡g
+A weboldal hasznÃ¡lva a wordpress biztonsÃ¡gi szabÃ¡lyait megbÃ­zhatÃ³nak mondhatÃ³ Ã¡ltalÃ¡nossÃ¡gban.
+A regisztrÃ¡ciÃ³ban megadott adatok szigorÃºan bizalmasan vannak kezelve Ã©s semmifÃ©le reklÃ¡mcÃ©lra nem hasznÃ¡lÃ³dnak fel.
 
-6. Teljesítmény
-A válaszidõ minimálisra csökkentése a fõ cél, hogy minél felhasználóbarátabb legyen. Szükséges esetlegesen egyidõben több ezer felhasználó kérését teljesíteni normál válaszidõn belül
-Természetesen mindezt befolyásolja a felhasználó sávszélessége is.
+6. TeljesÃ­tmÃ©ny
+A vÃ¡laszidÅ‘ minimÃ¡lisra csÃ¶kkentÃ©se a fÅ‘ cÃ©l, hogy minÃ©l felhasznÃ¡lÃ³barÃ¡tabb legyen. SzÃ¼ksÃ©ges esetlegesen egyidÅ‘ben tÃ¶bb ezer felhasznÃ¡lÃ³ kÃ©rÃ©sÃ©t teljesÃ­teni normÃ¡l vÃ¡laszidÅ‘n belÃ¼l
+TermÃ©szetesen mindezt befolyÃ¡solja a felhasznÃ¡lÃ³ sÃ¡vszÃ©lessÃ©ge is.
 
-7. Támogatottság
-Az alap programozási nyelvek (PHP, JavaScript, HTML...) szabványai
-Naplók vezetése
+7. TÃ¡mogatottsÃ¡g
+Az alap programozÃ¡si nyelvek (PHP, JavaScript, HTML...) szabvÃ¡nyai
+NaplÃ³k vezetÃ©se
 
-8. Tervezési korlátozások
+8. TervezÃ©si korlÃ¡tozÃ¡sok
 PHP, JavaScript, HTML, CSS
 Wordpress motor
-V-model módszertan használata
+V-model mÃ³dszertan hasznÃ¡lata
 
-9. On-line dokumentáció és Help rendszer
-10. Felhasznált kész komponensek
-11. Interfészek
-11.1. Felhasználói interfészek
-11.2. Hardware interfészek
-11.3. Software interfészek
-11.3. Kommunikációs interfészek
-12. Alkalmazott szabványok
-12.1. Kötelezõen alkalmazandó szabványok
-12.2. Választás alapján alkalmazott szabványok
-13. Mellékletek
+9. On-line dokumentÃ¡ciÃ³ Ã©s Help rendszer
+10. FelhasznÃ¡lt kÃ©sz komponensek
+11. InterfÃ©szek
+11.1. FelhasznÃ¡lÃ³i interfÃ©szek
+11.2. Hardware interfÃ©szek
+11.3. Software interfÃ©szek
+11.3. KommunikÃ¡ciÃ³s interfÃ©szek
+12. Alkalmazott szabvÃ¡nyok
+12.1. KÃ¶telezÅ‘en alkalmazandÃ³ szabvÃ¡nyok
+12.2. VÃ¡lasztÃ¡s alapjÃ¡n alkalmazott szabvÃ¡nyok
+13. MellÃ©kletek
