@@ -1,0 +1,132 @@
+<?php
+	if(isset($_FILES["kepf"])){
+
+	}
+	require_once("ifloggedin.php");
+	require_once("adatok.php");
+
+	if(isset($_FILES["kepup"])){
+		$kepnev = trim($_FILES["kepup"]["name"]);
+		$kepnev = "".(rand()*1984).$kepnev;
+		$keppath = "images/".$kepnev;
+		move_uploaded_file($_FILES["kepup"]["tmp_name"], $keppath);
+		$dbname = "snapface";
+		$connDB = connect("root","");
+		mysqli_select_db($connDB, $dbname);
+		$query = "INSERT INTO userphotoalbum (user_id, path) values (".$_SESSION["userid"].", '{$keppath}')".$id;
+		//echo $query;
+		mysqli_query($connDB, $query) or die("Hiba a feltöltésben!".mysqli_error($connDB));
+	}
+?>
+<!Docptye html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles/indexstil.css">
+		<link rel="stylesheet" type="text/css" href="styles/fotokstil.css">
+		<!-- Add jQuery library -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+		<!-- Add venobox -->
+		<link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="venobox/venobox.min.js"></script>
+		<meta charset="utf-8">
+		<title>Snapface</title>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+			    /* default settings */
+			    $('.venobox').venobox(); 
+
+
+			    /* custom settings */
+			    $('.venobox_custom').venobox({
+			        framewidth: '400px',        // default: ''
+			        frameheight: '300px',       // default: ''
+			        border: '10px',             // default: '0'
+			        bgcolor: '#5dff5e',         // default: '#fff'
+			        titleattr: 'data-title',    // default: 'title'
+			        numeratio: true,            // default: false
+			        infinigall: true            // default: false
+			    });
+
+			    /* auto-open #firstlink on page load */
+			    $("#firstlink").venobox().trigger('click');
+			});
+
+			function ImgUp(){
+
+			}
+		</script>
+	</head>
+	<body>
+		<div id="headermenu">
+			<div id="nevjegy"><?php /*print_r($_SESSION["person"]);*/echo "".$_SESSION["person"]["knev"]; ?></div>
+			<div id="minden">
+				<a href="index.php" class="headerbutton"><center>Kezdőlap</center></a>
+				<a href="adatlap.php" class="headerbutton"><center>Adatlap</center></a>
+				<a href="fotok.php" class="headerbutton"><center>Fényképek</center></a>
+				<a href="ismik.php" class="headerbutton"><center>Ismerősök</center></a>
+				<a href="events.php" class="headerbutton"><center>Események</center></a>
+				<a href="login.php?logout=true" class="headerbutton">Kilépés</a>
+			</div>
+		</div>
+
+		<button class="ulbutton" id="kepf" onclick="DisplayUploadMenu()">Kép feltöltése</button>
+		<div id="fotokcontent">
+			<h1 style="color: white;">Fényképek</h1>
+			<?php
+				$dbname = "snapface";
+				$connDB = connect("root","");
+				mysqli_select_db($connDB, $dbname);
+				$query = "SELECT path FROM userphotoalbum WHERE user_id=".$_SESSION["userid"];
+				$result = mysqli_query($connDB, $query) or die ("Unsuccesful ".$query);
+				while($sor = mysqli_fetch_assoc($result)){
+					$forras = $sor["path"];
+					echo "<a class=\"venobox\" href=\"{$forras}\"><img class=\"foto\" src=\"{$forras}\"></img></a>";
+				}
+			?>
+
+		
+		</div>
+
+		<div id="profil">
+			<?php 
+				include("profilpic.php"); 
+				$image = getProfile($_SESSION["userid"]); 
+				echo "<img id=\"profile\" src=\"{$image}\"></img>";
+			?>
+		</div>
+		<!--
+		<div id="uploader">
+			<center>
+				<form id="uploadset" action="" method="post" enctype="multipart/form-data">
+					<label>Válassza ki a feltölteni kívánt képet</label><br><input type="file" name="kepup" value="Feltöltés">
+					<br><input type="submit" name="" value="Feltöltés">
+				</form>
+			</center>
+		</div>
+		-->
+		<div id="replacable">
+			
+		</div>
+		<script type="text/javascript">
+			
+			document.getElementById("kepf").onclick = function(){
+				var innerSTR = "<center><form id=\"uploadset\" action=\"\" method=\"post\" enctype=\"multipart/form-data\"><label>Válassza ki a feltölteni kívánt képet</label><br><input type=\"file\" name=\"kepup\" value=\"Feltöltés\"><br><input type=\"submit\" name=\"\" value=\"Feltöltés\"></form></center>";
+				var uplDiv = document.createElement("div");
+				uplDiv.id = "uploader";
+				uplDiv.innerHTML = innerSTR;
+				old = document.getElementById("replacable");
+				old.parentNode.replaceChild(uplDiv, old);
+				var exitButton = document.createElement("button");
+				exitButton.innerHTML = "X";
+				exitButton.onclick = function(){
+					var oldDiv = document.createElement("div");
+					oldDiv.id = "replacable";
+				    document.getElementById("uploader").parentNode.replaceChild(oldDiv, uplDiv);
+				};
+				uplDiv.appendChild(exitButton);
+			};
+		</script>
+	</body>
+</html>
