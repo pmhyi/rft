@@ -1,0 +1,19 @@
+<?php
+	require_once("mydbms.php");
+	$dbname = "snapface";
+
+	$q = $_REQUEST["q"];
+	$index = $_REQUEST["index"];
+	$userrow = "";
+
+	$connDB = connect("root","");
+	mysqli_select_db($connDB, $dbname);
+	$query = "SELECT * FROM user WHERE vnev LIKE '{$q}%' OR knev LIKE '{$q}%' LIMIT 10;";
+	$result = mysqli_query($connDB, $query) or die ("Unsuccesful ".$query);
+	while($sor = mysqli_fetch_assoc($result)){
+		$image = $sor["profilepic"];
+		if(!isset($image)){ $image = "images/anonim.png";}
+		$userrow .= "<article class=\"friendblock\"><a>{$sor["vnev"]} {$sor["knev"]}</a><br><img src=\"{$image}\"><button class=\"markf\"></button></article>";
+	}
+	echo $userrow;
+?>
