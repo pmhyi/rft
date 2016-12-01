@@ -1,0 +1,19 @@
+<?php
+	function getProfile($id) {
+		require_once("mydbms.php");
+		$connDB = connect("root","");
+		$dbname = "snapface";
+		$image;
+		mysqli_select_db($connDB, $dbname);
+		$query = "SELECT profilepic FROM user WHERE id=".$id;
+		$result = mysqli_query($connDB, $query);
+		while($sor = mysqli_fetch_assoc($result)){
+			$image = $sor["profilepic"];
+		}
+		if($image == NULL){
+			$image = "images/anonim.png";
+		}
+		mysqli_close($connDB);
+		return $image;
+	}
+?>
