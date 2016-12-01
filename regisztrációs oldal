@@ -1,0 +1,64 @@
+<?php
+if(isset($_POST["vnev"])){
+	require_once("mydbms.php");
+	$query;
+	$gender = ($_POST["neme"] == "Nő") ? "female" : "male";
+	if(isset($_FILES["kep"])){
+		$kepnev = trim($_FILES["kep"]["name"]);
+		$kepnev = "".(rand()*1984).$kepnev;
+		$keppath = "images/".$kepnev;
+		move_uploaded_file($_FILES["kep"]["tmp_name"], $keppath);
+		$adatok = array($_POST["vnev"], $_POST["knev"], $_POST["email"], $_POST["passwd"], $_POST["szuldat"], $_FILES["kep"]);
+		$adatok[5] = $keppath;
+		for($i=0;$i<$adatok.length;$i++){
+			$adatok[$i] = str_replace($adatok[$i], "", "SELECT");
+			$adatok[$i] = str_replace($adatok[$i], "", "select");
+			$adatok[$i] = str_replace($adatok[$i], "", "FROM");
+			$adatok[$i] = str_replace($adatok[$i], "", "from");
+		}
+		$hash = md5($adatok[3]);
+		$query = "INSERT INTO user (vnev, knev, gender, email, passwdhash, szuldat, profilepic) values 
+		('{$adatok[0]}', '{$adatok[1]}', '{$gender}', '{$adatok[2]}', '{$hash}', '{$adatok[4]}', '{$adatok[5]}')";
+	}
+	else
+	{
+		die("NO");
+		$adatok = array($_POST["vnev"], $_POST["knev"], $_POST["email"], $_POST["passwd"], $_POST["szuldat"]);
+		$hash = md5($adatok[3]);
+		$query = "INSERT INTO user (vnev, knev, gender, email, passwdhash, szuldat) values 
+		('{$adatok[0]}', '{$adatok[1]}', '{$gender}', '{$adatok[2]}', '{$hash}', '{$adatok[4]}')";
+	}
+	$dbname = "snapface";
+	$con = connect("root","", $dbname);
+	mysqli_select_db($con, $dbname);
+	mysqli_query($con, $query) or die("Hiba a regisztrációban ".mysqli_error($con));
+	
+	
+	header("Location: login.php");
+}
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles/regstil.css">
+		<title>Regisztráció</title><meta charset="utf-8">
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<center>
+			<div id="logger">
+				<form action="" method="post" enctype="multipart/form-data">
+					<label>Vezetéknév*: </label><input type="text" name="vnev" id="vnev"><br>
+					<label>Keresztnév*: </label><input type="text" name="knev" id="knev"><br>
+					<label>Nem*: </label><select name="neme" id="neme"><option>Férfi</option><option>Nő</option></select><br>
+					<label>E-mail*: </label><input type="text" name="email" id="email"><br>
+					<label>Születési dátum*: </label><input type="date" name="szuldat" id="szuldat"><br>
+					<label>Profilkép feltöltése: </label><input type="file" name="kep" id="kep"><br>
+					<label>Jelszó: </label><input type="password" name="passwd" id="passwd"><br>
+					<label>Jelszó megerősítése: </label><input type="password" name="passwdcheck" id="passwdcheck"><br>
+					<input type="submit" value="Regisztrálok a Snapface oldalra">
+				</form>
+			</div>
+		</center>
+	</body>
+</html>
