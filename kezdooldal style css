@@ -1,0 +1,77 @@
+#headermenu {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: black;
+	height: 50px;
+	min-width: 100%;
+	right: 0px;
+	padding: 10px;
+	padding-left: 20px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+}
+
+#nevjegy
+{
+	padding: 8px;
+	float: left;
+	color: white;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 3px;
+	border-color: white;
+	font-size: 16pt;
+	margin-right: 50%;
+}
+#minden{
+	display: block;
+}
+
+body {
+	/*margin: 0px;*/
+	background-image: url("../images/Wallpaper.jpg");
+}
+
+.headerbutton{
+	float: left;
+	display: flex;
+	text-decoration: none;
+	text-align: center;
+	font-size: 14pt;
+	padding: 5px;
+	background-color: transparent;
+	text-shadow: 0px 0px 0px #4f9bff;
+	-webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    color: white;
+    border-color: #4f9bff;
+    border-width: 2px;
+    border-style: groove;
+	vertical-align: center;
+	height: 50%;
+	overflow: hidden;
+}
+
+.headerbutton:hover{
+	color: #4f9bff;
+	text-shadow: 0px 0px 15px #4CAF50;
+}
+
+#profil {
+	position: absolute;
+	top: 21px;
+	left: 15%;
+}
+#profile{
+	width: 101; 
+	height: 101;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	border-width: 3px;
+	border-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);
+	border-radius: 50%;
+
+}
