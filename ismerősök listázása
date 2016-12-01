@@ -1,0 +1,91 @@
+<?php
+	require_once("ifloggedin.php");
+	require_once("adatok.php");
+	$id = $_SESSION["userid"];
+?>
+<!Docptye html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles/indexstil.css">
+		<link rel="stylesheet" type="text/css" href="styles/ismikstil.css">
+		<meta charset="utf-8">
+		<title>Snapface</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function GetUsers(str, index) {
+				if(str.length == 0) {
+					document.getElementById("userlist").innerHTML = "";
+					return;
+				} else {
+					var xmhttp = new XMLHttpRequest();
+					xmhttp.onreadystatechange = function() {
+						if(this.readyState == 4 && this.status == 200) {
+							document.getElementById("userlist").innerHTML = this.responseText;
+						}
+					}
+					xmhttp.open("GET", "listusers.php?q="+str+"&index="+index, true);
+					xmhttp.send();
+				}
+			}
+		</script>
+		<div id="headermenu">
+			<div id="nevjegy"><?php /*print_r($_SESSION["person"]);*/echo "".$_SESSION["person"]["knev"]; ?></div>
+			<div id="minden">
+				<a href="index.php" class="headerbutton"><center>Kezdőlap</center></a>
+				<a href="adatlap.php" class="headerbutton"><center>Adatlap</center></a>
+				<a href="fotok.php" class="headerbutton"><center>Fényképek</center></a>
+				<a href="ismik.php" class="headerbutton"><center>Ismerősök</center></a>
+				<a href="events.php" class="headerbutton"><center>Események</center></a>
+				<a href="login.php?logout=true" class="headerbutton">Kilépés</a>
+			</div>
+		</div>
+		<div id="profil">
+			<?php 
+				include("profilpic.php"); 
+				$image = getProfile($_SESSION["userid"]); 
+				echo "<img id=\"profile\" src=\"{$image}\"></img>"; 
+			?>
+		</div>
+
+		<div id="kereso">
+			<h1 style="color: white;">Keresés</h1>
+			<input type="text" name="keres" style="margin: 20px;">
+			<input type="hidden" name="keres" value="0">
+			<div id="userlist">
+				
+			</div>
+		</div>
+		<div id="friendlist">
+			<h1 style="color: white;">Ismerősök</h1>
+			<?php
+				$idcollection = array();
+				$dbname = "snapface";
+				$connDB = connect("root","");
+				mysqli_select_db($connDB, $dbname);
+				$query = "SELECT * FROM friendship WHERE friend1={$id} OR friend2=".$id;
+				$result = mysqli_query($connDB, $query) or die ("Unsuccesful ".$query);
+				while($sor = mysqli_fetch_assoc($result)){
+					$friendId = ($sor["friend2"] == $id) ? $sor["friend1"] : $sor["friend2"];
+					array_push($idcollection, $friendId);
+				}
+				$amount = count($idcollection);
+
+				for($i=0;$i<$amount;$i++) {
+					$query = "SELECT vnev, knev, profilepic FROM user where id=".$idcollection[$i];
+					$result = mysqli_query($connDB, $query) or die ("Unsuccesful ".mysqli_error($connDB));
+					while($sor = mysqli_fetch_assoc($result)){
+						$image = getProfile($idcollection[$i]);
+						echo "<article class=\"friendblock\"><a>{$sor["vnev"]} {$sor["knev"]}</a><br><img src=\"{$image}\"></article>";
+					}
+				}
+			?>
+		</div>
+		<script type="text/javascript">
+			document.getElementsByName("keres")[0].onkeyup = function() {
+				var index = document.getElementsByName("keres")[0].value;
+				GetUsers(document.getElementsByName("keres")[0].value, document.getElementsByName("keres")[1].value);
+			};
+		</script>
+	</body>
+</html>
