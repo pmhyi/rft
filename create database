@@ -1,0 +1,266 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2016. Dec 01. 16:56
+-- Kiszolgáló verziója: 10.1.16-MariaDB
+-- PHP verzió: 7.0.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Adatbázis: `snapface`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `clubalbum`
+--
+
+CREATE TABLE `clubalbum` (
+  `id` int(11) NOT NULL,
+  `club_id` int(11) NOT NULL,
+  `path` varchar(255) COLLATE utf8_hungarian_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `event`
+--
+
+CREATE TABLE `event` (
+  `id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL,
+  `name` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,
+  `start_time` date NOT NULL,
+  `duration` time NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `eventalbum`
+--
+
+CREATE TABLE `eventalbum` (
+  `id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `path` varchar(255) COLLATE utf8_hungarian_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `friendship`
+--
+
+CREATE TABLE `friendship` (
+  `id` int(11) NOT NULL,
+  `friend1` int(11) NOT NULL,
+  `friend2` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `friendship`
+--
+
+INSERT INTO `friendship` (`id`, `friend1`, `friend2`) VALUES
+(1, 2, 3),
+(2, 1, 2),
+(3, 4, 1),
+(8, 11, 10),
+(7, 5, 4),
+(9, 10, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `location`
+--
+
+CREATE TABLE `location` (
+  `id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `latitude` double NOT NULL,
+  `longitude` double NOT NULL,
+  `altitude` double NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `theregoing`
+--
+
+CREATE TABLE `theregoing` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `vnev` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,
+  `knev` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,
+  `gender` varchar(6) COLLATE utf8_hungarian_ci NOT NULL,
+  `email` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,
+  `passwdhash` varchar(32) COLLATE utf8_hungarian_ci NOT NULL,
+  `szuldat` date NOT NULL,
+  `profilepic` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `relationship_id` int(11) DEFAULT NULL,
+  `friends` int(11) DEFAULT NULL,
+  `aboutperson` varchar(1000) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `user`
+--
+
+INSERT INTO `user` (`id`, `vnev`, `knev`, `gender`, `email`, `passwdhash`, `szuldat`, `profilepic`, `relationship_id`, `friends`, `aboutperson`) VALUES
+(1, 'Persia', 'White', 'female', 'f9m@gmail.com', 'd50baa610cda762d34321f39118f6819', '1972-02-05', 'images/romantic9.PNG', NULL, NULL, 'Nine years for the woman''s advantage is the most ideal age gap!'),
+(10, 'Vitai', 'BenjÃ¡min', 'male', 'imadlakfruzsi@gmail.com', '5affd821dd868dedbe9a7a99c2604126', '1994-09-21', 'images/45132032v_beni_turn.png', NULL, NULL, ''),
+(11, 'Bocsi', 'Csaba', 'male', 'bcsbd@freemail.hu', '2b86272b05b9ed864268845f95c27161', '1998-01-12', 'images/3602944RO.png', NULL, NULL, ''),
+(4, 'Gipsz', 'Jakab', 'male', 'mistery@gmail.com', '7815696ecbf1c96e6894b779456d330e', '1955-07-08', NULL, NULL, NULL, ''),
+(5, 'Tiszai', 'Máté', 'male', 'kockul@gmail.com', '7815696ecbf1c96e6894b779456d330e', '1984-02-11', NULL, NULL, NULL, '');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `userphotoalbum`
+--
+
+CREATE TABLE `userphotoalbum` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `path` varchar(255) COLLATE utf8_hungarian_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `userphotoalbum`
+--
+
+INSERT INTO `userphotoalbum` (`id`, `user_id`, `path`) VALUES
+(1, 1, 'images/romantic9.png'),
+(2, 1, 'images/the couple.png'),
+(3, 3, 'images/húzóra.png'),
+(4, 3, 'images/sfz.png'),
+(5, 3, 'images/kitkuld.jpg'),
+(6, 2, 'images/partimix.jpeg'),
+(7, 10, 'images/34140672322139.jpg'),
+(8, 10, 'images/szl.png');
+
+--
+-- Indexek a kiírt táblákhoz
+--
+
+--
+-- A tábla indexei `clubalbum`
+--
+ALTER TABLE `clubalbum`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `eventalbum`
+--
+ALTER TABLE `eventalbum`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `friendship`
+--
+ALTER TABLE `friendship`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `location`
+--
+ALTER TABLE `location`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `theregoing`
+--
+ALTER TABLE `theregoing`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `userphotoalbum`
+--
+ALTER TABLE `userphotoalbum`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A kiírt táblák AUTO_INCREMENT értéke
+--
+
+--
+-- AUTO_INCREMENT a táblához `clubalbum`
+--
+ALTER TABLE `clubalbum`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT a táblához `event`
+--
+ALTER TABLE `event`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT a táblához `eventalbum`
+--
+ALTER TABLE `eventalbum`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT a táblához `friendship`
+--
+ALTER TABLE `friendship`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT a táblához `location`
+--
+ALTER TABLE `location`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT a táblához `theregoing`
+--
+ALTER TABLE `theregoing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT a táblához `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT a táblához `userphotoalbum`
+--
+ALTER TABLE `userphotoalbum`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
