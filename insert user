@@ -1,0 +1,39 @@
+<?php
+if(isset($_POST["vnev"])){
+	require_once("mydbms.php");
+	$query;
+	$gender = ($_POST["neme"] == "Nő") ? "female" : "male";
+	if(isset($_FILES['kep'])){
+		$kepnev = trim($_FILES["kep"]["name"]);
+		$kepnev = "".(rand()*1984).$kepnev;
+		$keppath = "images/".$kepnev;
+		move_uploaded_file($_FILES["kep"]["tmp_name"], $keppath);
+		$adatok = array($_POST["vnev"], $_POST["knev"], $_POST["email"], $_POST["passwd"], $_POST["szuldat"], $_FILES["kep"]);
+		$adatok[5] = $keppath;
+		for($i=0;$i<$adatok.length;$i++){
+			$adatok[$i] = str_replace($adatok[$i], "", "SELECT");
+			$adatok[$i] = str_replace($adatok[$i], "", "select");
+			$adatok[$i] = str_replace($adatok[$i], "", "FROM");
+			$adatok[$i] = str_replace($adatok[$i], "", "from");
+		}
+		$hash = md5($adatok[3]);
+		$query = "INSERT INTO user (vnev, knev, gender, email, passwdhash, szuldat, profilepic) values 
+		('{$adatok[0]}', '{$adatok[1]}', '{$gender}', '{$adatok[2]}', '{$hash}', '{$adatok[4]}', '{$adatok[5]}')";
+	}
+	else
+	{
+		die("elbasztam");
+		$adatok = array($_POST["vnev"], $_POST["knev"], $_POST["email"], $_POST["passwd"], $_POST["szuldat"]);
+		$hash = md5($adatok[3]);
+		$query = "INSERT INTO user (vnev, knev, gender, email, passwdhash, szuldat) values 
+		('{$adatok[0]}', '{$adatok[1]}', '{$gender}', '{$adatok[2]}', '{$hash}', '{$adatok[4]}')";
+	}
+	$dbname = "snapface";
+	$con = connect("root","", $dbname);
+	mysqli_select_db($con, $dbname);
+	mysqli_query($con, $query) or die("Hiba a regisztrációban ".mysqli_error($con));
+	
+	
+	header("Location: login.php");
+}
+?>
