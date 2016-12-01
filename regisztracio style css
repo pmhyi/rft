@@ -1,0 +1,24 @@
+body {
+	/*min-width: 1600px;*/
+	margin: 16px;
+	background-image: url("../images/Wallpaper.jpg");
+}
+
+#logger {
+	margin: 16px;
+	width: 500px;
+	height: 300px;
+	-webkit-box-shadow: 0px 0px 46px 16px rgba(7,24,59,1);
+    -moz-box-shadow: 0px 0px 46px 16px rgba(7,24,59,1);
+    box-shadow: 0px 0px 46px 16px rgba(7,24,59,1);
+	background-color: rgba(25, 25, 28, 0.4);
+	align-items: left;
+}
+#logger form input {
+	margin: 5px;
+}
+
+#logger form label{
+	color: white;
+	-webkit-color: white;
+}
