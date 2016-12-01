@@ -1,0 +1,85 @@
+#header {
+	top: 0px;
+	background-color: #527edd;
+	width: 100%;
+	min-width: 1600px;
+	min-height: 220px;
+	margin-bottom: 60px;
+	border-bottom: 4px solid #200e47;
+
+}
+#logger {
+	margin: auto;
+	width: 500px;
+	height: 300px;
+	-webkit-box-shadow: 0px 0px 46px 16px rgba(7,24,59,1);
+    -moz-box-shadow: 0px 0px 46px 16px rgba(7,24,59,1);
+    box-shadow: 0px 0px 46px 16px rgba(7,24,59,1);
+	background-color: rgba(25, 25, 28, 0.4);
+}
+
+#logger form{
+	padding: 10%;
+}
+
+#logger form input {
+	margin: 20px;
+	top: 0px;
+}
+#logger form label{
+	/*font-weight: bold;*/
+	color: white;
+}
+
+.titletext {
+	float: left;
+	display: inline-block;
+	margin: 40px 10px 10px 40px;
+	margin-top: 100px;
+	font-size: 60pt;
+	/*border: 1px solid white;*/
+	-webkit-text-fill-color: black; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    overflow: hidden;
+}
+
+.rlbutton{
+	width: 120px;
+	height: 40px;
+	border-radius: 4px;
+	border-width: 0px;
+	font-size: 12pt;
+	-webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+#reg {
+	border-radius: 0px, 0px, 0px, 15px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #25f;
+	color: white;
+}
+#reg:hover {
+	background-color: #29f;
+	color: black;
+	
+}
+#log{
+	background-color: #510ece;
+	color: white;
+	margin-left: 70px;
+}
+#log:hover{
+	background-color: #814be5;
+	color: black;
+}
+
+
+body {
+	min-width: 1600px;
+	margin: 0px;
+	background-image: url("../images/Wallpaper.jpg");
+}
