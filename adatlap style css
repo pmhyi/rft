@@ -1,0 +1,23 @@
+#tartalom{
+	border-radius: 10px;
+	background-color: rgba(25, 25, 0, 0.1);
+	-webkit-background-color: rgba(25, 25, 0, 0.1);
+	position: absolute;
+	top: 140px;
+	padding: 10px;
+}
+
+#tartalom table {
+	border-style: none;
+	padding: 30px;
+}
+
+#tartalom table tr
+{
+	
+}
+
+#tartalom table tr td {
+	font-size: 16pt;
+	padding: 10px;
+}
