@@ -1,0 +1,52 @@
+#fotokcontent {
+	margin: 10px;
+	margin-top: 80px;
+	width: 100%;
+}
+.foto {
+	width: 300px;
+	height: 225px;
+	border-radius: 7px;
+	margin: 5px;
+	float: left;
+}
+.ulbutton{
+	width: 120px;
+	height: 40px;
+	border-radius: 4px;
+	border-width: 0px;
+	font-size: 12pt;
+	-webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+	background-color: #510ece;
+	color: white;
+	margin-left: 70px;
+}
+.ulbutton:hover {
+	background-color: #814be5;
+	color: black;
+}
+#uploader {
+	top: 0px;
+	left: 0px;
+ 	position: absolute;
+	min-width: 100%;
+	min-height: 100%;
+	background-color: rgba(25, 25, 28, 0.9);
+}
+#uploadset {
+	background-color: white;
+	width: 35%;
+	height: 40%;
+	position: fixed;
+	left: 35%;
+	top: 35%;
+	border-width: 5px;
+	border-color: #d1002d;
+	border-style: solid;
+}
+#kepf {
+ 	position: absolute;
+ 	top: 10px;
+ 	left: 600px;
+}
