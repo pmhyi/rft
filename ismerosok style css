@@ -1,0 +1,50 @@
+
+#kereso {
+	background-color: #322589;
+	width: 400px;
+	min-height: 15%;
+	float: right;
+	margin: 20px;
+	text-align: center;
+}
+.friendblock{
+	margin: 5px;
+	padding: 13px;
+	width: 280;
+	height: 160;
+	background: #322589;
+	background: linear-gradient(linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
+	float: left;
+	overflow: hidden;
+	border-width: 3px;
+	border-style: solid;
+	border-color: white;
+	border-radius: 9px;
+}
+.friendblock a {
+	font-size: 28;
+	color: white;
+	text-decoration: none;
+}
+.friendblock img {
+	width: 90px;
+	height: 90px;
+	object-fit: contain;
+	margin: 5px;
+	border-radius: 20%;
+}
+
+#friendlist{
+	padding: 5px;
+	margin-top: 80px;
+	max-width: 60%;
+	overflow: hidden;
+}
+.correction {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.markf {
+	min-height: 20px;
+	min-width: 20px;
+}
