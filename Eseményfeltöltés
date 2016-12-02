@@ -1,0 +1,79 @@
+<?php
+	require_once("ifloggedin.php");
+	require_once("adatok.php");
+	$admin_id = GetOwnData($_SESSION["userid"]);
+ 
+	?>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles/indexstil.css">
+<link rel="stylesheet" type="text/css" href="styles/ismikstil.css">
+		<title>EsemÃ©ny hozzÃ¡adÃ¡sa</title><meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html" charset=utf-8" />
+		<title>Snapface</title>
+	</head>
+	<body>
+	<div id="headermenu">
+			<div id="nevjegy"><?php /*print_r($_SESSION["admin_id"]);*/echo "".$_SESSION["admin_id"]["knev"]; ?></div>
+			<div id="minden">
+				<a href="index.php" class="headerbutton"><center>KezdÅ‘lap</center></a>
+				<a href="adatlap.php" class="headerbutton"><center>Adatlap</center></a>
+				<a href="fotok.php" class="headerbutton"><center>FÃ©nykÃ©pek</center></a>
+				<a href="ismik.php" class="headerbutton"><center>IsmerÅ‘sÃ¶k</center></a>
+				<a href="events.php" class="headerbutton"><center>EsemÃ©nyek</center></a>
+				<a href="login.php?logout=true" class="headerbutton">KilÃ©pÃ©s</a>
+			</div>
+		<center><div id="content">
+     <div id="friendlist">   
+<h1 style="color: white;">EsemÃ©ny hozzÃ¡adÃ¡sa</h1>
+</div>
+<fieldset>
+    <legend>Ãšj esemÃ©ny</legend>
+    <form action="events.php" method="post" />
+<table>
+<tr>
+<td>CÃ­m:</td><td><input type="text" name="name" /><br /></td>
+</tr>
+<tr>
+<td>LeÃ­rÃ¡s:</td><td><input type="text" name="lead" /><br /></td>
+</tr>
+<tr>
+<td>HelyszÃ­n:</td><td><input type="text" name="local" /><br /></td>
+</tr>
+<tr>
+<td>KezdÃ©s ideje:</td><td><input type="date" name="start_time" /><br /></td>
+</tr>
+<tr>
+<td>Tartama:</td><td><input type="time" name="duration" /><br /></td>
+</tr>
+<tr>
+//<td>BorÃ­tÃ³ feltÃ¶ltÃ©se:</td><td><input type="file" name="leadpic" /><br /></td>
+</tr>
+</table>
+<input type="submit" value="Ãšj esemÃ©ny hozzÃ¡adÃ¡sa" name="submit">
+    </form>
+ 
+<?php
+if(isset($_POST['submit'])){
+	$con=mysql_connect('localhost', '1261234','RFTprojekt');
+ 
+ if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+mysql_select_db('1261234');			
+ 
+$sql="INSERT INTO event (id, admin_id,name, start_time, duration, local, lead) VALUES ('', '$_POST[admin_id]', '$_POST[name]', '$_POST[start_time]', '$_POST[duration]', '$_POST[local]', '$_POST[lead]')";
+mysql_query($sql, $con);
+mysql_close($con);
+	}
+?>
+</fieldset>
+</div>
+<div id="profil">
+			<?php 
+				include("profilpic.php"); 
+				$image = getProfile($_SESSION["userid"]); 
+				echo "<img id=\"profile\" src=\"{$image}\"></img>"; 
+			?>
+		</div></body></html>
