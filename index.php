@@ -28,6 +28,22 @@
 				
 			</div>
 		</div>
+<h1 style="color: white;">Események</h1>
+				 <?php
+while($rows=mysql_fetch_assoc($records))
+{
+ $name=$rows['name'];
+$start_time=$rows['start_time'];
+$duration=$rows['duration'];
+$local=$rows['local'];
+$lead=$rows['lead'];
+$leadpic=$rows['leadpic'];
+ 
+echo "<article class=\"eventblock\"><table><tr><td><p>Esemény megnevezése:</td><td><p>".$name."</td></tr><tr><td><p>Dátum:</td><td><p>".$start_time." </td></tr><tr><td><p>Tartama:</td><td><p>".$duration."</td></tr><tr><td><p>Helye:</td><td><p>".$local."</td></tr><tr><td><p>Leírás:</td><td><p>".$lead."</td></tr><tr><td><p>".$leadpic."</p></td></tr></table></article>";
+ 
+}
+ 
+?>
 		<div id="profil">
 			<?php 
 				include("profilpic.php"); 
