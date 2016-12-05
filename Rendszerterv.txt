@@ -1,0 +1,56 @@
+Rendszerterv
+
+SnapFace közösségi oldal és eseménynaptár
+
+Leírás:
+
+A SnapFace weboldal egy php programozási nyelven írt közösségi oldal, 
+mely funkcióját tekintve elsõ sorban a közösségi rendezvények és
+ események szervezésére készült. 
+
+Az oldalon elkészítheti saját profilját, adhat hozzá profilképet és megkeresheti ismerõseit is, akik az újonnan létrehozott eseményeket láthatják és így tájékozódhatnak annak helyérõl és idõpontjáról.
+
+
+Fizikai rész:
+
+Felhasznált segédprogramok:
+
+-Notepad++ és SUblimeText - a programozás ezen ment végbe
+-GitHub - Internetes közös munka megkönnyítéséhez
+-WampServer - adatbázis, szerver
+
+
+Felhasznált erõforrások:
+
+-3 db laptop
+-Internetkapcsolat
+-Adatbázis
+
+
+Funkciók: 
+
+-Képfeltöltés
+	A felhasználó feltölthet saját képeket a profiljához.
+
+-Esemény létrehozás
+	Idõpont és hely megadásával létre hozhatunk új eseményeket.
+
+-Ismerõsnek jelölés
+	-Egy másik felhasználótismerõsnek jelölhetünk, felvehetjük az
+	ismerõsök listájára.
+
+-Regisztráció / adatlap szerkesztése
+	-SZemélyes adatok megadásával és profilkép választással 
+	regisztráció lehetséges.
+
+-Ismerösök listázása
+	-Ismerõseinket kilistázza az oldal profilképpel együtt.
+
+-Login rendszer
+	-Bejelentkezés saját felhasználó névvel és jelszóval.
+
+
+Adatvédelem:
+
+Az oldal forráskódja szabadon terjeszthetõ azzal a feltétellel, 
+ha meg vagyunk jelölve ötletgazdaként.
