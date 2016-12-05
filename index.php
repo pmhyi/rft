@@ -1,21 +1,20 @@
 <?php
 	require_once("ifloggedin.php");
 	require_once("adatok.php");
-?>
-<!Docptye html>
+	$admin_id = GetOwnData($_SESSION["userid"]);
+	
+	?>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="styles/indexstil.css">
-		<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="styles/ismikstil.css">
+		<title>EsemÃ©ny hozzÃ¡adÃ¡sa</title><meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 		<title>Snapface</title>
 	</head>
 	<body>
-
-			
-		<div id="headermenu">
-
-			<!--<?php echo "<img width=\"44\" height=\"44\" id=\"profil\" scr=\"".$_SESSION["person"]["profilepic"]."\"></img>" ?>-->
-			<div id="nevjegy"><?php /*print_r($_SESSION["person"]);*/echo "".$_SESSION["person"]["knev"];?></div>
+	<div id="headermenu">
+			<div id="nevjegy"><?php /*print_r($_SESSION["admin_id"]);*/echo "".$admin_id["knev"]; ?></div>
 			<div id="minden">
 				<a href="index.php" class="headerbutton"><center>Kezdőlap</center></a>
 				<a href="adatlap.php" class="headerbutton"><center>Adatlap</center></a>
@@ -24,32 +23,58 @@
 				<a href="events.php" class="headerbutton"><center>Események</center></a>
 				<a href="login.php?logout=true" class="headerbutton">Kilépés</a>
 			</div>
-			<div>
-				
 			</div>
-		</div>
-<h1 style="color: white;">Események</h1>
-				 <?php
-while($rows=mysql_fetch_assoc($records))
-{
- $name=$rows['name'];
-$start_time=$rows['start_time'];
-$duration=$rows['duration'];
-$local=$rows['local'];
-$lead=$rows['lead'];
-$leadpic=$rows['leadpic'];
- 
-echo "<article class=\"eventblock\"><table><tr><td><p>Esemény megnevezése:</td><td><p>".$name."</td></tr><tr><td><p>Dátum:</td><td><p>".$start_time." </td></tr><tr><td><p>Tartama:</td><td><p>".$duration."</td></tr><tr><td><p>Helye:</td><td><p>".$local."</td></tr><tr><td><p>Leírás:</td><td><p>".$lead."</td></tr><tr><td><p>".$leadpic."</p></td></tr></table></article>";
- 
-}
- 
+		<center><div id="content">
+     <div id="friendlist">   
+<h1 style="color: white;">Esemény hozzáadása</h1>
+</div>
+<fieldset>
+    <legend>Új esemény</legend>
+    <form action="events.php" method="post" />
+<table>
+<tr>
+<td>Cím:</td><td><input type="text" name="name" /><br /></td>
+</tr>
+<tr>
+<td>Leírás:</td><td><input type="text" name="lead" /><br /></td>
+</tr>
+<tr>
+<td>Helyszín:</td><td><input type="text" name="local" /><br /></td>
+</tr>
+<tr>
+<td>Kezdés ideje:</td><td><input type="date" name="start_time" /><br /></td>
+</tr>
+<tr>
+<td>Tartama:</td><td><input type="time" name="duration" /><br /></td>
+</tr>
+<tr>
+//<td>Borító feltöltése:</td><td><input type="file" name="leadpic" /><br /></td>
+</tr>
+</table>
+<input type="submit" value="Új esemény hozzáadása" name="submit">
+    </form>
+
+<?php
+if(isset($_POST['submit'])){
+	$con = connect('root', "");
+	
+ if (!$con)
+  {
+  die('Could not connect: ' . mysqli_error());
+  }
+mysqli_select_db($con, "sfpm");			
+$myid = $admin_id["id"];
+$sql="INSERT INTO event (id, admin_id, name, start_time, duration, local, lead) VALUES ('', '{$myid}', '{$_POST['name']}', '{$_POST['start_time']}', '{$_POST['duration']}', '{$_POST['local']}', '{$_POST['lead']}')";
+mysqli_query($con, $sql);
+mysqli_close($con);
+	}
 ?>
-		<div id="profil">
+</fieldset>
+</div>
+<div id="profil">
 			<?php 
 				include("profilpic.php"); 
 				$image = getProfile($_SESSION["userid"]); 
 				echo "<img id=\"profile\" src=\"{$image}\"></img>"; 
 			?>
-		</div>
-	</body>
-</html>
+		</div></body></html>
