@@ -1,0 +1,68 @@
+Tesztelési terv - SnapFace
+
+Ismertetés:
+
+A SnapFace egy eseményszervezésen alapuló közösségi oldal, melyen
+regisztrálhatnak az Ön ismerősei és leszervezhetik például a héten esedékes
+bulikat, összejöveteleket.
+
+
+Funkciók tesztelése:
+ 
+Legfontosabb funkciók, melyek a tesztelés során fontosak:
+
+-Regisztráció
+-Belépés
+-Adatlap kitöltése
+-Ismerősök jelölése
+-Új esemény felvitele
+
+
+Tesztelési stratégia, tesztfázisok:
+
+1. fázis
+-Először mi, fejlesztők teszteljük
+
+2. fázis
+-Később középiskolás, egyetemista hallgatókat kérünk fel tesztelni, 
+akik egy 5-ös skálán több szempontot is figyelembe véve 
+bejelölhetik, mennylre elégedettek az oldallal.
+
+
+Elfogadási kritériumok:
+
+1.fázis: 
+
+Ha a program megfelelően működik, továbbítjuk a tesztalanyoknak.
+
+2. fázis: 
+
+Ha a teszelőknek is tetszik a design és a program működés közben, közzétesszük 
+
+online, hogy elérhető legyen mások számára is. 
+
+Ha valamelyik fázisban megakadna a tesztelés, a programot kivizsgáljuk és 
+
+próbáljuk kiküszöbölni a hibákat, majd újra tesztelésre bocsátjuk.
+
+
+Erőforrások:
+
+- 3 db laptop
+- 3 fejlesztő (emberi erőforrások)
+- Kb. 20 fő diák, akit érdekel a projekt tesztelése
+
+
+Kockázatok:
+
+- Kritikus hiba esetén a programot vissza kell minősíteni készülő fázisba.
+- Ha a design nem megfelelő sokaknak, úgy szintén nagyobb változtatásokra van 
+
+szükség.
+
+
+Betanítás, oktatás:
+
+-Az oldalt rendkívül egyszerű kezelni, nincs szükség betanításra, vagy külön 
+
+instrukciókra.
