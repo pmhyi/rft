@@ -29,12 +29,11 @@ A válaszidő minimálisra csökkentése a fő cél, hogy minél felhasználóba
 Természetesen mindezt befolyásolja a felhasználó sávszélessége is.
 
 7. Támogatottság
-Az alap programozási nyelvek (PHP, JavaScript, HTML...) szabványai
+Az alap programozási nyelvek (PHP/5.3.8 , JavaScript, HTML, CSS, Ajax) szabványai.
 Naplók vezetése
 
 8. Tervezési korlátozások
-PHP, JavaScript, HTML, CSS
-Wordpress motor
+PHP, Ajax, HTML5, CSS3, böngészőkre 
 V-model módszertan használata
 
 9. On-line dokumentáció és Help rendszer
