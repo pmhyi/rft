@@ -48,15 +48,15 @@ if(isset($_POST["vnev"])){
 		<center>
 			<div id="logger">
 				<form action="" method="post" enctype="multipart/form-data">
-					<label>Vezetéknév*: </label><input type="text" name="vnev" id="vnev"><br>
-					<label>Keresztnév*: </label><input type="text" name="knev" id="knev"><br>
-					<label>Nem*: </label><select name="neme" id="neme"><option>Férfi</option><option>Nő</option></select><br>
-					<label>E-mail*: </label><input type="text" name="email" id="email"><br>
-					<label>Születési dátum*: </label><input type="date" name="szuldat" id="szuldat"><br>
-					<label>Profilkép feltöltése: </label><input type="file" name="kep" id="kep"><br>
-					<label>Jelszó: </label><input type="password" name="passwd" id="passwd"><br>
-					<label>Jelszó megerősítése: </label><input type="password" name="passwdcheck" id="passwdcheck"><br>
-					<input type="submit" value="Regisztrálok a Snapface oldalra">
+<table><tr><td><label>Vezetéknév*: </label></td><td><input type="text" name="vnev" id="vnev"></td></tr>
+					<tr><td><label>Keresztnév*: </label></td><td><input type="text" name="knev" id="knev"></td></tr>					
+<tr><td><label>Nem*: </label></td><td><select name="neme" id="neme"><option>Férfi</option><option>Nő</option></select></td></tr>
+					<tr><td><label>E-mail*: </label></td><td><input type="text" name="email" id="email"></td></tr>
+					<tr><td><label>Születési dátum*: </label></td><td><input type="date" name="szuldat" id="szuldat"></td></tr>
+					<tr><td><label>Profilkép feltöltése: </label></td><td><input type="file" name="kep" id="kep"></td></tr>
+					<tr><td><label>Jelszó: </label></td><td><input type="password" name="passwd" id="passwd"></td></tr>
+					<tr><td><label>Jelszó megerősítése: </label></td><td><input type="password" name="passwdcheck" id="passwdcheck"></td></tr>
+</table><input type="submit" value="Regisztrálok a Snapface oldalra">
 				</form>
 			</div>
 		</center>
